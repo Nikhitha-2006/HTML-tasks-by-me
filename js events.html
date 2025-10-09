@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Event </title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: #4a90e2;
+      margin: 20px auto;
+      border-radius: 12px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .log {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 10px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Event </h1>
+
+  <div class="box" id="eventBox">Hover or Click Me</div>
+
+  <div class="log" id="logBox">Event log will appear here...</div>
+
+  <script>
+    const box = document.getElementById('eventBox');
+    const log = document.getElementById('logBox');
+
+    box.addEventListener('mouseover', () => {
+      box.style.backgroundColor = '#357ab8';
+      log.textContent = 'Mouse over the box';
+    });
+
+    box.addEventListener('mouseout', () => {
+      box.style.backgroundColor = '#4a90e2';
+      log.textContent = 'Mouse left the box';
+    });
+
+    box.addEventListener('click', () => {
+      log.textContent = 'Box clicked!';
+    });
+
+   
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM fully loaded');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      log.textContent = `Key pressed: ${e.key}`;
+    });
+
+    document.addEventListener('scroll', () => {
+      log.textContent = 'You scrolled the page';
+    });
+  </script>
+</body>
+</html>

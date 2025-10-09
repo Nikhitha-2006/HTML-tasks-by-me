@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Media Query </title>
+  <style>
+    @media screen {
+      body {
+        background-color: #e0f7fa;
+        color: #964e4e;
+        font-family: Arial, sans-serif;
+      }
+    }
+
+    @media print {
+      body {
+        background-color: white;
+        color: rgb(143, 76, 76);
+        font-family: Times New Roman, serif;
+      }
+
+      .no-print {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Media Query</h1>
+  <p>This content looks different on screen and when printed.</p>
+  <div class="no-print">This section won't appear in print.</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deactivate Account</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      padding: 50px;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 25px;
+      border: 2px solid #ccc;
+      width: fit-content;
+      margin: auto;
+      border-radius: 8px;
+      
+    }
+
+    fieldset {
+      border: none;
+    }
+
+    legend {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #aaa;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 20px;
+      margin-top: 15px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"] {
+      background-color: #d9534f;
+      color: white;
+    }
+
+    input[type="reset"] {
+      background-color: #aaa;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <form class="deactivation-form">
+    <fieldset>
+      <legend>Deactivate Account</legend>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+
+      <label for="reason">Reason for leaving:</label>
+      <select id="reason">
+        <option value="privacy">Concerned about privacy</option>
+        <option value="not-useful">Not finding it useful</option>
+        <option value="too-many-notifications">Too many notifications</option>
+        <option value="other">Other</option>
+      </select>
+    
+      <label>
+        <input type="checkbox" required />
+        I confirm I want to deactivate my account.
+      </label>
+
+      <input type="submit" value="Deactivate">
+      <input type="reset" value="Reset">
+    </fieldset>
+  </form>
+</body>
+</html>
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandragiri Weather</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .weather-app {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 320px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .weather-icon {
+      font-size: 48px;
+      margin: 10px 0;
+    }
+
+    .weather-detail {
+      font-size: 1.1em;
+      margin: 6px 0;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-app">
+    <h1>Chandragiri Weather</h1>
+    <div class="weather-icon">🌤️</div>
+    <div class="weather-detail"><span class="label">Condition:</span> Mostly Sunny</div>
+    <div class="weather-detail"><span class="label">Temperature:</span> High 35°C, Low 26°C</div>
+    <div class="weather-detail"><span class="label">Humidity:</span> 40% – 88%</div>
+    <div class="weather-detail"><span class="label">Wind:</span> 9 km/h NW</div>
+    <div class="weather-detail"><span class="label">UV Index:</span> 10 (Very High)</div>
+    <div class="weather-detail"><span class="label">Visibility:</span> 6 km</div>
+    <div class="weather-detail"><span class="label">Sunset:</span> 6:20 PM</div>
+    <div class="weather-detail"><span class="label">Chance of Rain:</span> 19% (Day), 32% (Night)</div>
+    <div class="weather-detail"><span class="label">Air Quality:</span> AQI 62 (Moderate)</div>
+  </div>
+
+  <script>
+  const today = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = today.toLocaleDateString('en-IN', options);
+
+  const header = document.querySelector('h1');
+  header.textContent += ` – ${formattedDate}`;
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Technologies Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question p {
+      font-weight: bold;
+    }
+
+    .options label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #357ab8;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h2>Web Technologies Quiz</h2>
+    <div id="quiz"></div>
+    <button onclick="submitQuiz()">Submit</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "Which HTML tag is used to define a hyperlink?",
+        options: ["link", "href", "a", "url"],
+        answer: 2,
+        explanation: "The <a> tag defines hyperlinks using the href attribute."
+      },
+      {
+        q: "Which CSS property is used to change the text color of an element?",
+        options: ["font-color", "text-color", "color", "background-color"],
+        answer: 2,
+        explanation: "'color' changes text color; 'background-color' affects the background."
+      },
+      {
+        q: "Which JavaScript method is used to write content into the HTML document?",
+        options: ["document.write()", "console.log()", "alert()", "innerHTML()"],
+        answer: 0,
+        explanation: "document.write() outputs directly to the HTML document."
+      },
+      {
+        q: "Which HTML tag is used to insert an image?",
+        options: ["img", "image", "pic>", "src"],
+        answer: 0,
+        explanation: "<img> is used with the 'src' attribute to insert images."
+      },
+      {
+        q: "Which CSS property controls the size of text?",
+        options: ["font-style", "text-style", "font-size", "text-size"],
+        answer: 2,
+        explanation: "'font-size' sets the size of text in CSS."
+      },
+      {
+        q: "Which JavaScript keyword is used to declare a variable?",
+        options: ["let", "Both var and let", "var", "int"],
+        answer: 1,
+        explanation: "Both 'var' and 'let' declare variables; 'let' is modern and block-scoped."
+      },
+      {
+        q: "Which HTML tag is used to create a table row?",
+        options: ["td", "tr", "row", "th"],
+        answer: 1,
+        explanation: "<tr> defines a table row; <td> is a cell, <th> is a header cell."
+      },
+      {
+        q: "Which CSS property is used to make text bold?",
+        options: ["font-weight", "text-style", "bold", "font-bold"],
+        answer: 0,
+        explanation: "'font-weight' controls boldness; use 'bold' or numeric values like 700."
+      },
+      {
+        q: "Which JavaScript function is used to delay execution of code?",
+        options: ["wait()", "delay()", "pause()", "setTimeout()"],
+        answer: 3,
+        explanation: "setTimeout() delays execution by a specified time in milliseconds."
+      },
+      {
+        q: "Which HTML tag is used to define a list item?",
+        options: ["item", "ol", "ul", "li"],
+        answer: 3,
+        explanation: "<li> defines a list item inside <ol> or <ul>."
+      }
+    ];
+
+    function loadQuiz() {
+      const quizDiv = document.getElementById('quiz');
+      questions.forEach((q, index) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('question');
+        questionDiv.innerHTML = `<p>${index + 1}. ${q.q}</p>`;
+        q.options.forEach((opt, i) => {
+          questionDiv.innerHTML += `
+            <label>
+              <input type="radio" name="q${index}" value="${i}"> ${opt}
+            </label>
+          `;
+        });
+        quizDiv.appendChild(questionDiv);
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let feedback = '';
+
+      questions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && parseInt(selected.value) === q.answer) {
+          score++;
+          feedback += `<p class="correct">Q${index + 1}: Correct! ${q.explanation}</p>`;
+        } else {
+          feedback += `<p class="incorrect">Q${index + 1}: Incorrect. ${q.explanation}</p>`;
+        }
+      });
+
+      document.getElementById('result').innerHTML = `You scored ${score}/${questions.length}.<br>${feedback}`;
+    }
+
+    window.onload = loadQuiz;
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Multiple 2D Shapes on Canvas</title>
+    <style>
+      body {
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      canvas {
+        border: 2px solid #444;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <video width="800px" height="600" controls/autoplay/muted><source src="https://youtu.be/mLzjt0So5aQ?feature=shared" type="video"</video>
+    
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // Rectangle
+      ctx.fillStyle = "orange";
+      ctx.fillRect(20, 20, 120, 60);
+      
+
+      // Circle
+      ctx.beginPath();
+      ctx.arc(200, 50, 40, 0, Math.PI * 2);
+      ctx.fillStyle = "skyblue";
+      ctx.fill();
+
+      // Triangle
+      ctx.beginPath();
+      ctx.moveTo(320, 80);
+      ctx.lineTo(270, 150);
+      ctx.lineTo(370, 150);
+      ctx.closePath();
+      ctx.fillStyle = "green";
+      ctx.fill();
+
+      // Line
+      ctx.beginPath();
+      ctx.moveTo(30, 150);
+      ctx.lineTo(150, 200);
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Ellipse
+      ctx.beginPath();
+      ctx.ellipse(450, 70, 50, 30, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "purple";
+      ctx.fill();
+
+      // Simple Smiley Face
+      ctx.beginPath();
+      ctx.arc(500, 250, 40, 0, Math.PI * 2); // Face
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+      ctx.stroke();
+
+      // Eyes
+      ctx.beginPath();
+      ctx.arc(485, 240, 5, 0, Math.PI * 2); // Left eye
+      ctx.arc(515, 240, 5, 0, Math.PI * 2); // Right eye
+      ctx.fillStyle = "black";
+      ctx.fill();
+
+      // Mouth
+      ctx.beginPath();
+      ctx.arc(500, 255, 20, 0, Math.PI); // Smile (half circle)
+      ctx.stroke();
+      ctx.font = "30px Verdana";
+      ctx.fillStyle = "black";
+      ctx.fillText("CarcinoScope", 50, 100);
+
+      ctx.strokeStyle = "white";
+      ctx.strokeText("CarcinoScope", 50, 100);
+
+    </script>
+  </body>
+</html>
